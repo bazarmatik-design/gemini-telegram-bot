@@ -16,7 +16,7 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     try:
         r = client.models.generate_content(
-            model="gemini-1.5-flash",
+            model=genai.GenerativeModel("models/gemini-pro"),
             contents=text
         )
         await update.message.reply_text(r.text)
@@ -34,3 +34,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
